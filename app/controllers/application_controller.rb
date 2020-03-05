@@ -8,13 +8,6 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "password_security"
   end
 
-  get "/success" do
-    if logged_in?
-      erb :account
-    else
-      redirect "/login"
-    end
-  end
 
   get "/failure" do
     erb :failure
