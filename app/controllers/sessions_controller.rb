@@ -1,2 +1,2 @@
-class SessionsController < Sinatra::Base
+class SessionsController < ApplicationController
 end
