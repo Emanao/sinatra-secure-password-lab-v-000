@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       redirect "/failure"
     end
   end
-  
+
   get "/success" do
     if logged_in?
       erb :account
