@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   get "/" do
     erb :index
   end
+  
   get "/signup" do
     erb :signup
   end
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
       redirect '/failure'
     end
   end
-  
+
   get '/account' do
     @user = User.find(session[:user_id])
     erb :account
