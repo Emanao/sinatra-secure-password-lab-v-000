@@ -19,6 +19,10 @@ class ApplicationController < Sinatra::Base
       !!current_user
     end
 
+    def login(user_id, pwd)
+      session[:user_id] = user.id
+    end
+
     def current_user
       @current_user ||= User.find_by(session[:user_id]) if session[:user_id]
     end
