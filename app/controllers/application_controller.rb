@@ -7,11 +7,6 @@ class ApplicationController < Sinatra::Base
     enable :sessions
     set :session_secret, "password_security"
   end
-
-  get "/" do
-    erb :index
-  end
-
   get "/signup" do
     erb :signup
   end
@@ -26,10 +21,7 @@ class ApplicationController < Sinatra::Base
 
   end
 
-  get '/account' do
-    @user = User.find(session[:user_id])
-    erb :account
-  end
+
 
 
   get "/login" do
@@ -69,11 +61,12 @@ class ApplicationController < Sinatra::Base
     end
 
     def logged_in?
-      !!session[:user_id]
+      # !!session[:user_id]
+      current_user()
     end
 
     def current_user
-      User.find(session[:user_id])
+      @current_user ||= User.find_by(session[:user_id]) if session
     end
   end
 
