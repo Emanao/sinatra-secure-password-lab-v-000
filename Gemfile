@@ -11,7 +11,6 @@ gem 'capybara'
 gem 'rack_session_access'
 gem 'rack-test'
 gem 'shotgun'
-gem 'require_all'
 
 group :development do
   gem 'pry'
