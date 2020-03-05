@@ -19,8 +19,8 @@ class ApplicationController < Sinatra::Base
       !!current_user
     end
 
-    def login(user_id, pwd)
-      session[:user_id] = user.id
+    def login(user_id)
+      session[:user_id] = user_id
     end
 
     def current_user
