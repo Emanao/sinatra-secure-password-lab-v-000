@@ -7,7 +7,7 @@ class ApplicationController < Sinatra::Base
     enable :sessions
     set :session_secret, "password_security"
   end
-  
+
 
   helpers do
     def valid_user?(params)
@@ -21,6 +21,10 @@ class ApplicationController < Sinatra::Base
 
     def current_user
       @current_user ||= User.find_by(session[:user_id]) if session
+    end
+
+    def logout!
+      session.clear
     end
   end
 
