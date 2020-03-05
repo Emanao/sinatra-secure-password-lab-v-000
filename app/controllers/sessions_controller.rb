@@ -14,6 +14,18 @@ class SessionsController < ApplicationController
     end
   end
 
+  get "/success" do
+    if logged_in?
+      erb :account
+    else
+      redirect "/login"
+    end
+  end
+
+  get "/failure" do
+    erb :failure
+  end
+
   get "/logout" do
     session.clear
     redirect "/"
